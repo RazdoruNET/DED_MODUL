@@ -18,7 +18,7 @@ void webSocketEvent(WStype_t type, uint8_t * payload, size_t length)
       if (json["event"] != "ping")
       {
         cart         = (int) json["data"]["card"];
-        rpm_new      = (int) json["data"]["rpm"]; 
+        rpm      = (int) json["data"]["rpm"]; 
         max_rpm      = (int) json["data"]["max_rpm"];
         max_cart_rpm = (int) json["data"]["angles"][count-1][0].as<int>();
 
