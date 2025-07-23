@@ -197,15 +197,18 @@ void initCore()
     
       http.end();
 
+      // Перезагружаем модуль
       ESP.restart();
     }
     else
     {
+      // Если настройки имеются производим подключение модуля к ded box
       WiFi.begin(ssid, password);
+      // Ожидаем пока ded box выдаст нашему модулю ip
       while (WiFi.localIP().toString() == "0.0.0.0");
     }
 
-    // Ожидаем успешное подключение и после активируем web socket
+    // Еще раз убеждаемся что подключение прошло успешно и после активируем web socket
     if (WiFi.waitForConnectResult() == WL_CONNECTED)
     {
       webSocketInit();
